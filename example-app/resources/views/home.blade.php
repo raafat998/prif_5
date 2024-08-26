@@ -122,7 +122,7 @@
 @endforeach
 
                 <!-- grid-item-holder-->
-                
+
             </div>
             <a href="listing.html" class="btn float-btn small-btn color-bg">View All Properties</a>
         </section>
@@ -364,12 +364,14 @@
                             <!--tab -->
                             <div id="tab-1" class="tab-content first-tab">
                                 <div class="custom-form">
-                                    <form method="post" name="registerform">
+
+                                    <form method="POST" action="{{ route('userLogin') }}" name="registerform">
+                                        @csrf
                                         <label>Username or Email Address * <span class="dec-icon"><i class="fal fa-user"></i></span></label>
-                                        <input name="email" type="text" onClick="this.select()" value="">
+                                        <input name="email" type="email" >
                                         <div class="pass-input-wrap fl-wrap">
                                             <label>Password * <span class="dec-icon"><i class="fal fa-key"></i></span></label>
-                                            <input name="password" type="password" autocomplete="off" onClick="this.select()" value="">
+                                            <input name="password" type="password" >
                                             <span class="eye"><i class="fal fa-eye"></i> </span>
                                         </div>
                                         <div class="lost_password">
@@ -389,24 +391,30 @@
                             <div class="tab">
                                 <div id="tab-2" class="tab-content">
                                     <div class="custom-form">
-                                        <form method="post" name="registerform" class="main-register-form" id="main-register-form2">
-                                            <label>Full Name * <span class="dec-icon"><i class="fal fa-user"></i></span></label>
-                                            <input name="name" type="text" onClick="this.select()" value="">
-                                            <label>Email Address * <span class="dec-icon"><i class="fal fa-envelope"></i></span></label>
-                                            <input name="email" type="text" onClick="this.select()" value="">
+                                        <form method="post" action="{{ route('storeUser') }}" name="registerform" class="main-register-form" id="main-register-form2">
+                                            @csrf
+                                            <label for="name">Full Name * <span class="dec-icon"><i class="fal fa-user"></i></span></label>
+                                            <input id="name" name="name" type="text" >
+
+                                            <label for="email">Email Address * <span class="dec-icon"><i class="fal fa-envelope"></i></span></label>
+                                            <input id="email" name="email" type="email" >
+
                                             <div class="pass-input-wrap fl-wrap">
-                                                <label>Password * <span class="dec-icon"><i class="fal fa-key"></i></span></label>
-                                                <input name="password" type="password" autocomplete="off" onClick="this.select()" value="">
-                                                <span class="eye"><i class="fal fa-eye"></i> </span>
+                                                <label for="password">Password * <span class="dec-icon"><i class="fal fa-key"></i></span></label>
+                                                <input id="password" name="password" type="password" autocomplete="off" >
+                                                <span class="eye"><i class="fal fa-eye"></i></span>
                                             </div>
+
                                             <div class="filter-tags ft-list">
-                                                <input id="check-a2" type="checkbox" name="check">
+                                                <input id="check-a2" type="checkbox" name="check" >
                                                 <label for="check-a2">I agree to the <a href="#">Privacy Policy</a> and <a href="#">Terms and Conditions</a></label>
                                             </div>
+
                                             <div class="clearfix"></div>
-                                            <button type="submit" class="log_btn color-bg"> Register </button>
+                                            <button type="submit" class="log_btn color-bg">Register</button>
                                         </form>
                                     </div>
+
                                 </div>
                             </div>
                             <!--tab end -->

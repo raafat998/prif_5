@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::delete('/property/{id}', [PropertyController::class, 'destroy'])->name('p
 //     return redirect()->route('property.show', ['id' => 10]); // Replace 1 with an actual property ID that exists in your database
 // });
 
-Route::get('/', [PropertyController::class, 'index'])->name('home');
+Route::get('/home', [PropertyController::class, 'index'])->name('home');
 Route::get('/listing6', function () {
     return view('listing6');
 });
@@ -39,4 +40,6 @@ Route::get('/data', function () {
 });
 // Route::get('/listing', [PropertyController::class, 'listing'])->name('listing');
 Route::get('/properties/search', [PropertyController::class, 'search'])->name('properties.search');
-Route::get('/listing6', [PropertyController::class, 'search']);
+Route::get('/listing6', [PropertyController::class, 'search'])->name('search');
+Route::post('/storeUser', [UserController::class, 'store'])->name('storeUser');
+Route::post('/userLogin', [UserController::class, 'login'])->name('userLogin');
